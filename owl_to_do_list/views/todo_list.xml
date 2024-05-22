@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="to_do_list_tree_view">
+            <field name="name">to.do.list.tree.view</field>
+            <field name="model">todo.list</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name" />
+                    <field name="color" widget="color" />
+                    <field name="completed" />
+                </tree>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="to_do_list_form_view">
+            <field name="name">to.do.list.form.view</field>
+            <field name="model">todo.list</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name" />
+                            <field name="color" widget="color" />
+                            <field name="completed" />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record model="ir.actions.act_window" id="action_todo_list">
+            <field name="name">Todo List</field>
+            <field name="res_model">todo.list</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <record model="ir.actions.client" id="action_todo_list_owl">
+            <field name="name">OWL Todo List</field>
+            <field name="tag">owl_to_do_list.action_todo_list_owl</field>
+        </record>
+        <menuitem name="OWL Todo List " id="menu_owl_todo_list">
+        <menuitem name="Todo List" id="menu_todo_list" action="action_todo_list" />
+        <menuitem name="OWL Todo List" id="menu_todo_list_owl" action="action_todo_list_owl" />
+        </menuitem>
+    </data>
+</odoo>
