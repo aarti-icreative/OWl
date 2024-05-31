@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates>
+    <t t-name="owl.ResPartnerListView.Buttons" t-inherit="web.ListView.Buttons" owl="1">
+        <xpath expr="//button[hasclass('o_list_button_save')]" position="before">
+        	<button type="button" class="btn btn-primary" >
+                    View Sale Order
+                </button>
+        </xpath>
+
+        
+    </t>
+</templates>
