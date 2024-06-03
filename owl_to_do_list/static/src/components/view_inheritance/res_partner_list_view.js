@@ -3,18 +3,28 @@
 import { registry } from "@web/core/registry";
 import { listView } from "@web/views/list/list_view";
 import { ListController } from "@web/views/list/list_controller";
+import { useService } from "@web/core/utils/hooks";
 
 class ResPartnerListController extends ListController {
     setup() {
         super.setup()
-        console.log('this is res partner controller')
+        this.action = useService("action")
+    }
+
+    openSalesView(){
+        this.action.doAction({
+            type: "ir.actions.act_window",
+            name: "Customer Sales",
+            res_model: "sale.order",
+            views: [[false, "list"],[false,"form"]],
+        })
     }
 }
 
 export const resPartnerListView = {
     ...listView,
     Controller: ResPartnerListController,
-    buttonTemplate: "owl.ResPartnerListView.Buttons"
+    buttonTemplate: "owl.ResPartnerListView"
 }
 
-registry.category("views").add("res_partner_list_view_inherit", resPartnerListView)
+registry.category("views").add("res_partner_list_view", resPartnerListView)
