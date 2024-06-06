@@ -13,7 +13,7 @@ class ResPartnerFormController extends FormController {
     }
 
     openWebsite(url) {
-        console.log("openWebsite", url)
+        console.log("url", url)
         this.action.doAction({
             type: "ir.actions.act_url",
             target: "self",

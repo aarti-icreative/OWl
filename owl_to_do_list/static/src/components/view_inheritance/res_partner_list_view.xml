@@ -2,7 +2,7 @@
 <templates>
     <t t-name="owl.ResPartnerListView" t-inherit="web.ListView.Buttons" owl="1">
         <xpath expr="//div[hasclass('o_list_buttons')]" position="inside">
-            <button class="btn btn-success  ms-2" t-on-click="openSalesView">View Sale Order</button>
+            <button class="btn btn-success ms-2" t-on-click="openSalesView">View Sale Orders</button>
         </xpath>
     </t>
 </templates>

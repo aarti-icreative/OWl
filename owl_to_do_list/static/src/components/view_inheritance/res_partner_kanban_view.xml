@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<templates>
+    <t t-name="owl.ResPartnerKanbanView" t-inherit="web.KanbanView" >
+        <!-- <xpath expr="//t[contains(@t-if, 'props.showButtons')]" position="after"> -->
+        <xpath expr="//div[hasclass('o_cp_buttons')]" position="after">
+            <button class="btn btn-primary ms-2" t-on-click="openSalesView">View Sale Orders</button>
+        </xpath>
+    </t>
+</templates>
