@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<templates>
-    <t t-name="owl.ResPartnerKanbanView" t-inherit="web.KanbanView" >
-        <!-- <xpath expr="//t[contains(@t-if, 'props.showButtons')]" position="after"> -->
-        <xpath expr="//div[hasclass('o_cp_buttons')]" position="after">
+<templates xml:space="preserve">
+    <t t-name="owl.ResPartnerKanbanView" t-inherit="web.KanbanView">
+        <xpath expr="//button[hasclass('o-kanban-button-new')]" position="after">
             <button class="btn btn-primary ms-2" t-on-click="openSalesView">View Sale Orders</button>
+        </xpath>
+        <xpath expr="//t[contains(@t-component, 'props.Renderer')]" position="before">
+            <div class="p-3 bg-white o_res_partner_kanban_view_sidebar">
+                <h2>Customer Locations</h2>
+                <div class="list-group">
+                    <t t-foreach="customerLocations" t-as="c" t-key="c.state_id[0]">
+                        <a class="list-group-item" href="#" t-on-click="()=>this.selectLocations(c.state_id)"><span t-esc="c.state_id[1]" /> <span t-esc="c.state_id_count" class="badge bg-primary text-white" /></a>
+                    </t>
+                </div>
+            </div>
+        </xpath>
+        <xpath expr="//Layout" position="attributes">
+            <attribute name="className">model.useSampleModel ? 'o_view_sample_data' : '' + "d-flex"</attribute>
         </xpath>
     </t>
 </templates>
